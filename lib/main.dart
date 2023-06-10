@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'descripcion_local.dart';
+import 'package:flutter/services.dart';
+import 'package:oscar_s_application1/routes/app_routes.dart';
 
 void main() {
-  runApp(const MainApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(MyApp());
 }
 
-String decripcion =
-    "setsosdadmsalkjd adas asdasd as dvas dsadvas dalsid gasbdadsab sadasdgas asdj  sa dasjdasñgfn kañ daskhaDSA SADLSA.BASKGSABF ASFSAFBSAFASBFASBFASAFLASFLASA";
-String NombreLocal = "Los oscares Restaurante ";
-int numero = 12;
-
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: new DescripcionEspacio(4, decripcion, NombreLocal, numero),
-        ));
+      theme: ThemeData(
+        visualDensity: VisualDensity.standard,
+      ),
+      title: 'oscar_s_application1',
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.inicioPrimeraPantallaDeslizableScreen,
+      routes: AppRoutes.routes,
+    );
   }
 }
